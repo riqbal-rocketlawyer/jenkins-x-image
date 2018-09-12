@@ -1,0 +1,14 @@
+apiVersion: skaffold/v1alpha2
+kind: Config
+build:
+  tagPolicy:
+    envTemplate:
+      template: "quay.io/rocketlawyer/jenkins-x-image:{{.VERSION}}"
+  artifacts:
+  - imageName: jenkins-x-image
+    workspace: .
+    docker: {}
+  local: {}
+deploy:
+  kubectl:
+    manifests:

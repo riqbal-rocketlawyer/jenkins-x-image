@@ -25,7 +25,7 @@ pipeline {
             }
             steps {
                 container('jx-base') {
-                    sh "jx step git credentials"
+                    sh "export VERSION=$BUILD_NUMBER && skaffold build -f skaffold.yaml"
 input 'ok'
                     sh "./jx/scripts/release.sh"
                 }
