@@ -9,6 +9,7 @@ pipeline {
             }
             steps {
                 container('jx-base') {
+                    input "ok"
                     sh "export VERSION=$BUILD_NUMBER && skaffold build -f skaffold.yaml"
                 }
             }
